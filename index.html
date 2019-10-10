@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+
+            <a class="navbar-brand" href="#">
+                <h3>Sugeeta Gupta</h3>
+            </a>
+
+        </nav>
+
+        <div class="container ">
+            <div class="jumbotron">
+                <!-- <img src="assets/images/train2.jpg" id="background" class="img-rounded text-center"> -->
+
+            </div>
+            <!-- Header Div -->
+            <header>
+                <div class="container">
+                    <div class="jumbotron myHeader">
+                        <h1 class="text-center">Train Scheduler </h1>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class ="panel panel-success test-succes">
+            <div class= "panel-heading"><h3>Current train schedule</h3></div>
+            <div class= "panel-body">
+                <table class ="table">
+                    <thead>
+                        <tr>
+                            <th> Trian Name</th>
+                            <th> destination</th>
+                            <th> frequency</th>
+                            <th> Next Arrival</th>
+                            <th> Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="add-row"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- forms for adding train -->
+
+
+
+        <div class="panel panel-success text-success">
+            <div class= "panel-heading">
+                <h3>Add Train</h3>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for ="text">Train Name</label>
+                        <input type="text" class="form-control" id= "train-name">
+                    </div>
+                    <div class="form-group">
+                        <label for ="text">Destination</label>
+                        <input type="text" class="form-control" id= "destination">
+                    </div>
+                    <div class="form-group">
+                        <label for ="text">First Train Time</label>
+                        <input type="text" class="form-control" id= "first-tarin-time">
+                    </div>
+                    <div class="form-group">
+                        <label for ="text">frequency</label>
+                        <input type="text" class="form-control" id= "frequency">
+                    </div>
+                    <button type="submit" id="add-train" class="btn btn-success">Submit</button>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <!-- Footer -->
+        <footer class="page-footer font-small fixed-bottom mt-5 ">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2023 Copyright by Sugeeta Gupta
+
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+        <script src="assets/javascript/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
