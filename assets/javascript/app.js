@@ -1,8 +1,7 @@
 
 
 
-alert("what");
-console.log("what");
+
 //your code here
 
 var firebaseConfig = {
@@ -20,26 +19,27 @@ var database = firebase.database();
 
 var trainName = "";
 var destination = "";
-var startTime = "";
+var startTime = "03.30";
 var frequency = 0;
 
+var time=setTimeout(currentTime, 1000);
 function currentTime() {
     var current = moment().format("LT");
     $("#currentTime").html(current);
-    setTimeout(currentTime, 1000);
+    
 };
 
 
-$(".form-field").on("keyup", function () {
-    var traintemp = $("#train-name").val().trim();
-    var destinationtemp = $("#destination-city").val().trim();
-    var timetemp = $("#first-train").val().trim();
-    var freqtemp = $("#frequency-time").val().trim();
+$(".form-field").on("keyup",function(){
+var traintemp=$("#train-name").val().trim();
+var destinationtemp=$("#destination-city").val().trim();
+var timetemp=$("#first-train").val().trim();
+var freqtemp=$("#frequency-time").val().trim();
 
-    sessionStorage.setItem("train", traintemp);
-    sessionStorage.setItem("city", destinationtemp);
-    sessionStorage.setItem("time", timetemp);
-    sessionStorage.setItem("freq", freqtemp);
+sessionStorage.setItem("train",traintemp);
+sessionStorage.setItem("city",destinationtemp);
+sessionStorage.setItem("time",timetemp);
+sessionStorage.setItem("freq",freqtemp);
 });
 $("#train-name").val(sessionStorage.getItem("train"));
 $("#destination-city").val(sessionStorage.getItem("city"));
@@ -50,12 +50,12 @@ $("#frequency-time").val(sessionStorage.getItem("freq"));
 $("#submit").on("click", function (event) {
     // Don't refresh the page!
     event.preventDefault();
-    // if($("#train-name").val().trim()===""||
-    // $("#destination").val().trim()===""||
-    // $("#first-train").val().trim()===""||
-    // $("#frequency").val().trim()===""){
-    //     alert("please fill");
-    // }else{
+// if($("#train-name").val().trim()===""||
+// $("#destination").val().trim()===""||
+// $("#first-train").val().trim()===""||
+// $("#frequency").val().trim()===""){
+//     alert("please fill");
+// }else{
 
 
 
@@ -65,7 +65,7 @@ $("#submit").on("click", function (event) {
     firstTrain = $("#first-train").val().trim();
     frequency = $("#frequency-time").val().trim();
 
-    $(".form-field").val("");
+$(".form-field").val("");
     // Code in the logic for storing and retrieving the most recent user.
     database.ref().push({
         trainName: trainName,
@@ -76,12 +76,12 @@ $("#submit").on("click", function (event) {
     });
     // Don't forget to provide initial data to your Firebase database.
     sessionStorage.clear();
-    //  }
+//  }
 
 });
 
 database.ref().on("child_added", function (childSnapshot) {
-
+console.log(childSnapshot);
     //     //moment.js
     var firstTrainNew = moment(childSnapshot.val().startTime, "hh:mm").subtract(1, "years");
     var diffTime = moment().diff(moment(firstTrainNew), "minutes");
@@ -90,6 +90,7 @@ database.ref().on("child_added", function (childSnapshot) {
     var minAway = childSnapshot.val().frequency - remaining;
     //next train time
     var nextTrain = moment().add(minAway, "minutes");
+    console.log('nextTrain==' +nextTrain)
     var key = childSnapshot.key;
 
 
