@@ -30,42 +30,42 @@ function currentTime() {
 };
 
 
-$(".form-field").on("keyup",function(){
-var traintemp=$("#train-name").val().trim();
-var citytemp=$("#destination").val().trim();
-var timetemp=$("#first-train").val().trim();
-var freqtemp=$("#frequency").val().trim();
+$(".form-field").on("keyup", function () {
+    var traintemp = $("#train-name").val().trim();
+    var destinationtemp = $("#destination-city").val().trim();
+    var timetemp = $("#first-train").val().trim();
+    var freqtemp = $("#frequency-time").val().trim();
 
-sessionStorage.setItem("train",traintemp);
-sessionStorage.setItem("city",citytemp);
-sessionStorage.setItem("time",timetemp);
-sessionStorage.setItem("freq",freqtemp);
+    sessionStorage.setItem("train", traintemp);
+    sessionStorage.setItem("city", destinationtemp);
+    sessionStorage.setItem("time", timetemp);
+    sessionStorage.setItem("freq", freqtemp);
 });
 $("#train-name").val(sessionStorage.getItem("train"));
-$("#destination").val(sessionStorage.getItem("city"));
+$("#destination-city").val(sessionStorage.getItem("city"));
 $("#first-train").val(sessionStorage.getItem("time"));
-$("#frequency").val(sessionStorage.getItem("freq"));
+$("#frequency-time").val(sessionStorage.getItem("freq"));
 
 
 $("#submit").on("click", function (event) {
     // Don't refresh the page!
     event.preventDefault();
-// if($("#train-name").val().trim()===""||
-// $("#destination").val().trim()===""||
-// $("#first-train").val().trim()===""||
-// $("#frequency").val().trim()===""){
-//     alert("please fill");
-// }else{
+    // if($("#train-name").val().trim()===""||
+    // $("#destination").val().trim()===""||
+    // $("#first-train").val().trim()===""||
+    // $("#frequency").val().trim()===""){
+    //     alert("please fill");
+    // }else{
 
 
 
 
     trainName = $("#train-name").val().trim();
-    destination = $("#destination").val().trim();
+    destination = $("#destination-city").val().trim();
     firstTrain = $("#first-train").val().trim();
-    frequency = $("#frequency").val().trim();
+    frequency = $("#frequency-time").val().trim();
 
-$(".form-field").val("");
+    $(".form-field").val("");
     // Code in the logic for storing and retrieving the most recent user.
     database.ref().push({
         trainName: trainName,
@@ -76,7 +76,7 @@ $(".form-field").val("");
     });
     // Don't forget to provide initial data to your Firebase database.
     sessionStorage.clear();
-//  }
+    //  }
 
 });
 
