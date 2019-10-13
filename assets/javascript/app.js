@@ -50,12 +50,12 @@ $("#frequency-time").val(sessionStorage.getItem("freq"));
 $("#submit").on("click", function (event) {
     // Don't refresh the page!
     event.preventDefault();
-// if($("#train-name").val().trim()===""||
-// $("#destination").val().trim()===""||
-// $("#first-train").val().trim()===""||
-// $("#frequency").val().trim()===""){
-//     alert("please fill");
-// }else{
+if($("#train-name").val().trim()===""||
+$("#destination-city").val().trim()===""||
+$("#first-train").val().trim()===""||
+$("#frequency-time").val().trim()===""){
+    alert("Please fill all informations");
+}else{
 
 
 
@@ -76,7 +76,7 @@ $(".form-field").val("");
     });
     // Don't forget to provide initial data to your Firebase database.
     sessionStorage.clear();
-//  }
+  }
 
 });
 
